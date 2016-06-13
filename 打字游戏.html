@@ -1,0 +1,854 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>打字游戏</title>
+
+</head>
+<style>
+*{
+	padding: 0;
+	margin: 0;
+  list-style: none;
+}
+body,html{
+	width: 100%;
+	height:100%;
+}
+	.box{
+		width:1334px;
+    height:873px;
+		border:1px solid #ccc;
+		position: relative;
+    margin:auto;
+    left:0;
+    right:0;
+		background-repeat: repeat;
+		overflow: hidden;
+    z-index: 2;
+	}
+  .kaishi{
+    width:1334px;
+    height:873px;
+    border:1px solid #ccc;
+    position: relative;
+    margin:auto;
+    left:0;
+    right:0;
+    background-image: url(3.jpg);
+    background-repeat: repeat;
+    overflow: hidden;
+  }
+  .mm{
+    width:1334px;
+    height:873px;
+    border:1px solid #ccc;
+    position: relative;
+    margin:auto;
+    left:0;
+    right:0;
+    background-image: url(2.jpg);
+    background-repeat: repeat;
+    overflow: hidden;
+  }
+  .left{
+    width: 1000px;
+    height:672px;
+    float:left;
+    background-image: url(5.jpg);
+    position: absolute;
+    top:120px;
+    border-right: 4px solid #91C436;
+    border-bottom: 4px solid #91C436;
+    border-top: 4px solid #91C436;
+    overflow: hidden;
+    z-index: 2;
+  }
+  .right{
+    width: 834px;
+    height:770px;
+    position: absolute;
+    background-image: url(9.png);
+    top:30px;
+    right: 0;
+  }
+  ul li{
+    width: 334px;
+    height: 215px;
+    float: right;
+  }
+  .yi{
+    width: 200px;
+    height:60px;
+    background: #C77D51;
+    position: absolute;
+    top:25px;
+    left:255px;
+    font-size: 36px;
+    text-align: center;
+    line-height: 60px;
+  }
+  .san{
+    width: 334px;
+    height:873px;
+    position: relative;
+    right:0;
+    top:0;
+  }
+  .san #most{
+    position: absolute;
+    right:97px;
+    top:35px;
+    padding: 0 13px;
+    width: 140px;
+    height: 40px;
+    font-size: 26px;
+    line-height: 40px;
+    text-align: center;
+    color:#E45A19
+  }
+  .san .moster{
+    position: absolute;
+    right:97px;
+    top:85px;
+    padding: 0 13px;
+    width: 140px;
+    font-size: 26px;
+    line-height: 40px;
+    background: #7CA743;
+    text-align: left;
+    color:#fff;
+  }
+  .moster div span{
+    font-size: 14px;
+
+  }
+  .san #fenshus{
+    position: absolute;
+    right:97px;
+    top:335px;
+    padding: 0 13px;
+    width: 140px;
+    height: 40px;
+    font-size: 26px;
+    line-height: 40px;
+    text-align: center;
+    color:#E45A19
+  }
+  .san .fenshu{
+    position: absolute;
+    right:97px;
+    top:385px;
+    padding: 0 13px;
+    width: 140px;
+    height: 40px;
+    font-size: 26px;
+    line-height: 40px;
+    background: #7CA743;
+    text-align: center;
+    color:#fff;
+  }
+
+  .san #times{
+    position: absolute;
+    right:97px;
+    top:435px;
+    padding: 0 13px;
+    width: 140px;
+    height: 40px;
+    font-size: 26px;
+    line-height: 40px;
+    text-align: center;
+    color:#E45A19;
+  }
+  .san .time{
+    position: absolute;
+    right:97px;
+    top:485px;
+    padding: 0 13px;
+    width: 140px;
+    height: 40px;
+    font-size: 26px;
+    line-height: 40px;
+    background: #7CA743;
+    text-align: center;
+    color:#fff;
+  }
+  .san #passs{
+    position: absolute;
+    right:97px;
+    top:535px;
+    padding: 0 13px;
+    width: 140px;
+    height: 40px;
+    font-size: 26px;
+    line-height: 40px;
+    text-align: center;
+    color:#E45A19;
+  }
+  .san .pass{
+    position: absolute;
+    right:97px;
+    top:585px;
+    padding: 0 13px;
+    width: 140px;
+    height: 40px;
+    font-size: 26px;
+    line-height: 40px;
+    background: #7CA743;
+    text-align: center;
+    color:#fff;
+  }
+  .san #restart{
+    position: absolute;
+    right:97px;
+    top:665px;
+    padding: 0 13px;
+    width: 140px;
+    height: 40px;
+    font-size: 26px;
+    line-height: 40px;
+    text-align: center;
+    background: #7CA743;
+    color:#E45A19;
+  }
+	.zi{
+		position: absolute;
+		display: inline-block;
+		background-image: url(7.png);
+		border-radius: 50%;
+		width: 100px;
+		height: 100px;
+		color:#EAEA29;
+		text-align: center;
+		line-height: 80px;
+		font-size: 60px;
+		top:0;
+		left: :0;
+	}
+	.pao{
+		width:350px;
+		height: 63px;
+		position: absolute;
+    margin:auto;
+		border-radius: 30px;
+		top:630px;
+		left:0;
+    right:0;
+		line-height: 260px;
+		text-align: center;
+		font-size: 30px;
+		color: #fff;
+    cursor: pointer;
+	}
+
+ .ret{
+   	width: 100px;
+   	height: 60px;
+   	position: absolute;
+   	text-align: center;
+   	line-height: 60px;
+   	font-size: 24px;
+   	padding: 2px 4px;
+    top:5px;
+   	left:10px;
+   	background:#fff;
+   	border-radius: 10%;
+ }
+	.tong{
+		width:1200px;
+		height:800px;
+		position: absolute;
+    background-image: url(8.png);
+		top:0;
+    bottom:0;
+		margin: auto;
+    left:0;
+    right:0;
+		border:1px solid #ccc;
+		color: #fff;
+    font-family: '迷你简黄草';
+    z-index: 4;
+		display: none;
+	}
+  .middle{
+    width: 640px;
+    height:470px;
+    position: absolute;
+    margin:auto;
+    left:0;
+    right:0;
+    top:0;
+    bottom:0;
+  }
+  .top{
+    width: 100%;
+    height: 75%;
+    float:left;
+    position: relative;
+  }
+  .bottom{
+    width: 100%;
+    height: 25%;
+    float:left;
+    position: relative;
+  }
+  .tleft{
+    width: 45%;
+    height: 100%;
+    float: left;
+    position: relative;
+  }
+  .tu{
+    width: 246px;
+    height: 294px;
+    position: absolute;
+    right:0;
+    bottom:0;
+    background-image: url(10.png);
+  }
+  .tright{
+    width: 55%;
+    height: 100%;
+    float: left;
+  }
+  .shibai{
+    width: 50%;
+    margin-left: 18%;
+    height: 25%;
+    margin-top: 15%;
+    margin-bottom: 2%;
+    text-align: center;
+  }
+  .shibaii{
+    width: 100%;
+    height: 100%;
+    background-image: url(11.png);
+    text-align: center;
+  }
+  .tongguan{
+    width: 100%;
+    height: 100%;
+    background-image: url(12.png);
+    text-align: center;
+  }
+  .m,.n{
+    width: 80%;
+    height:15%;
+    padding: 0 10%;
+    line-height: 53px;
+    float: left;
+    margin-bottom: 2%;
+  }
+  .pingjia{
+    width: 50%;
+    height: 15%;
+    line-height: 53px;
+    padding: 0 5%;
+    float: right;
+  }
+  .ping{
+    width: 100px;
+    height: 100%;
+    text-align: center;
+    line-height: 53px;
+    margin-left: 80px;
+    font-size: 24px;
+    color:#F31407;
+  }
+  .getfs{
+      width: 40%;
+      height: 100%;
+      background: #7CA743;
+      margin-left: 15%;
+      float:left;
+      text-align: center;
+      padding:0 5px;
+  }
+  .play{
+    margin-left: 15px;
+    color:green;
+    float:left;
+  }
+  #names{
+     border:0;
+     width: 40%;
+     height:100%;
+     background: #7CA743;
+     float:left;
+     margin-left: 15%;
+     font-size: 12px;
+     color:#fff;
+     padding:0 5px;
+  }
+  .fanhui{
+    width: 130px;
+    height: 60px;
+    background: #27FF00;
+    text-align: center;
+    line-height:60px;
+    margin-left: 15%;
+    margin-top: 29px;
+    float:left;
+  }
+  .cont{
+     width: 130px;
+     height:60px;
+     text-align: center;
+     line-height:60px;
+     background: #27FF00;
+     float:right;
+     margin-top: 29px;
+     margin-right: 15%;
+  }
+  .fff{
+     width: 130px;
+     height:60px;
+     background: #27FF00;
+     float:right;
+     margin-right: 35px;
+     margin-right: 15%;
+  }
+ .dis{
+    width: 20px;
+    height: 5px;
+    background: yellow;
+    position: absolute;
+    bottom: 0;
+    left:0;
+ }
+</style>
+<body>
+
+     <div class="box">
+      <div class="kaishi">
+
+      </div>
+      <div class="mm">
+        <div class="left">
+
+      </div>
+      <div class="right">
+        <ul>
+          <li class="yi">第一关</li>
+          <li class='san'>
+            <span id="most">最高纪录</span>
+            <div class="moster"></div>
+            <span id='fenshus'>分数</span>
+            <div class='fenshu'>0</div>
+            <span id='times'>时间</span>
+            <div class="time">300</div>
+            <span id="passs">生命</span>
+            <div class="pass">5</div>
+            <span id="restart">重新开始</span>
+          </li>
+        </ul>
+      </div>
+      </div>
+     	<div class="pao">
+     	</div>
+     		</div>
+     	</div>
+     	<div class="tong">
+
+        <div class="middle">
+          <div class="top">
+            <div class="tleft">
+              <div class="tu"></div>
+            </div>
+            <div class="tright">
+              <div class="shibai"></div>
+              <div class="m">
+                <span class='play'>名字:</span>
+                <input type="text" value='请输入姓名' id="names">
+              </div>
+              <div class="n">
+                <span class='play'>得分:</span>
+                <div class="getfs"></div>
+              </div>
+              <div class="pingjia">
+                <span class="play pings">评价:</span>
+                <div class="ping">
+
+                </div>
+              </div>
+         </div>
+          </div>
+          <div class="bottom">
+            <div class="fanhui">返回</div>
+            <div class="cont fff">下一关</div>
+          </div>
+        </div>
+
+     	</div>
+     </div>
+     <div class="content">
+
+     </div>
+</body>
+<script src="function.js"></script>
+<script src="data.js"></script>
+<script src='jquery-1.12.0.js'></script>
+<script>
+  var box = $(".box")[0];
+  var zimujihe = {};
+  var pao = $(".pao")[0];
+  var tin = $(".ting")[0];
+  var left = $('.left')[0];
+  var t;
+  var xx = left.offsetHeight;
+  var elf = 5;
+  var f = 0;
+  var m;
+  var times;
+  var mostest = {}
+
+  if (localStorage.mostest) {
+    var mostest = JSON.parse(localStorage.mostest)
+  } else {
+    var mostest = [{
+      wang: 1,
+      name: 'zhangsan',
+      fenshu: 160000
+    }, {
+      wang: 2,
+      name: 'lisi',
+      fenshu: 100000
+    }, {
+      wang: 3,
+      name: 'lisi',
+      fenshu: 10000
+    }, {
+      wang: 4,
+      name: 'lisi',
+      fenshu: 1500
+    }, {
+      wang: 5,
+      name: 'lisi',
+      fenshu: 200
+    }, ];
+    localStorage.setItem("mostest", JSON.stringify(mostest))
+  }
+  /////////保存
+  var baocun = function() {
+    localStorage.mostest = JSON.stringify(mostest)
+  }
+
+  ////////渲染记录
+  var render = function() {
+    $('.moster').html('');
+    $('.pass').html(elf)
+    $(mostest).each(function(i, v) {
+      var vals = Number(v.fenshu);
+      $('<div>')
+        .html('<span>' + (i + 1) + '</span>&nbsp;<span>' + v.name + '</span>&nbsp;<span>' + vals + '</span>')
+        .appendTo('.moster')
+    })
+  }
+  render();
+  ////////////随机生成字母
+
+  function createzimu() {
+    do {
+      var zimu = String.fromCharCode(Math.floor(Math.random() * 25 + 97)).toLowerCase();
+    } while (zimujihe[zimu])
+    var zi = document.createElement("div");
+    zi.className = "zi";
+    zi.innerHTML = zimu;
+    zimujihe[zimu] = zi;
+    left.appendChild(zi);
+    var ran = Math.ceil(Math.random() * 5);
+    zi.style.left = Math.random() * (left.offsetWidth - zi.offsetWidth) + "px";
+    zimujihe[zimu] = {
+      top: 0,
+      yuansu: zi,
+      off: ran
+    }
+  }
+  document.onkeyup = function(e) {
+    var key = String.fromCharCode(e.keyCode).toLowerCase();
+
+    if (zimujihe[key]) {
+      var zi = zimujihe[key].yuansu;
+      remove(key);
+      defen();
+      createzimu();
+    }
+    if (e.keyCode == 32) {
+      taggame();
+    }
+  }
+  //////到底移除
+
+  function remove(zimu) {
+    var zi = zimujihe[zimu].yuansu;
+    zi.parentElement.removeChild(zi);
+    delete zimujihe[zimu];
+  }
+
+  //////////得分
+  //////////
+
+  var defen = function() {
+    f += 1;
+    var fenshu = 100 * f;
+    $(document).off('keyup');
+    $('.fenshu').html(fenshu)
+    if (f === 30) {
+      clearInterval(t);
+      clearInterval(times);
+      $('.ping').html('SSS');
+      $('.tong').css('display', 'block')
+      $('<div>').addClass('tongguan').appendTo('.shibai')
+      fenshu = String(f * 100);
+      $('.getfs').html(fenshu);
+      $('.cont').addClass('fff').removeClass('resta').html('下一关');
+      $('.bottom').on('click', '.fff', function() {
+        var elss = $('#names').val();
+        var obj = {
+          wang: Math.max.apply(null, $.map(mostest, function(v) {
+            return v.wang
+          })) + 1,
+          name: elss,
+          fenshu: fenshu
+        };
+        mostest.push(obj);
+        mostest.sort(function(x, y) {
+          return x.fenshu > y.fenshu;
+        })
+        mostest.shift()
+        mostest.sort(function(x, y) {
+          return x.fenshu < y.fenshu;
+        })
+        $('.tong').css('display', 'none');
+        $('<div>').removeClass('tongguan');
+        $('#names').html('');
+        $('.getfs').html('');
+        $('#names').off('keydown')
+        baocun();
+        render();
+        $('.yi').html('第二关');
+        $('.left').empty();
+        $('.fenshu').html(0);
+        zimujihe = {}
+        for (var i = 0; i < 5; i++) {
+
+          createzimu(i);
+
+        }
+        t = setInterval(diao, 30);
+        elf = 6;
+        f = 0;
+        m = 210;
+        jishi();
+        pas();
+        return false;
+      })
+    }
+  }
+
+  ///////错过的字母太多死亡
+
+    function pas() {
+      elf -= 1;
+      $('.pass').html(elf);
+      $('.time').html(m);
+      $('.cont').off('click');
+      $('.cont').html('重新开始').addClass('resta');
+      $(document).off('keyup');
+      if (elf === 0) {
+        var fenshu = $('.fenshu').html();
+        $('.ping').html('S');
+        $('<div>').addClass('shibaii').appendTo('.shibai');
+        $('.getfs').html(fenshu);
+        clearInterval(t)
+        clearInterval(times)
+        $('.tong').css('display', 'block');
+        $('#names').on('keydown', function(e) {
+          if (e.keyCode === 13) {
+            console.log(1)
+            var elss = $('#names').val();
+            var obj = {
+              wang: Math.max.apply(null, $.map(mostest, function(v) {
+                return v.wang
+              })) + 1,
+              name: elss,
+              fenshu: fenshu
+            };
+            mostest.push(obj);
+            mostest.sort(function(x, y) {
+              console.log(x.fenshu, y.fenshu)
+              return x.fenshu > y.fenshu;
+            })
+            mostest.shift()
+            mostest.sort(function(x, y) {
+              console.log(x.fenshu, y.fenshu)
+              return x.fenshu < y.fenshu;
+            })
+            $('.tong').css('display', 'none')
+            $('<div>').removeClass('shibaii');
+            $('#names').html('');
+            $('.getfs').html('');
+            $('#names').off('keydown')
+            baocun();
+            render();
+            return false;
+          }
+        })
+      }
+    }
+    //////字母自动生成
+
+    function diao() {
+      var arr = [];
+      for (var i in zimujihe) {
+        var zll = zimujihe[i];
+        zll.top += zll.off;
+        zll.yuansu.style.top = zll.top + "px";
+        if (zll.top > xx) {
+          arr.push(i);
+          pas();
+        }
+      }
+      if (arr.length > 0) {
+        for (var j = 0; j < arr.length; j++) {
+          remove(arr[j]);
+          createzimu();
+        }
+
+      }
+    }
+    ///////时间耗尽死亡
+  var shijian = function() {
+    m -= 1;
+    $(document).off('keyup')
+    $('.time').html(m);
+    $('.cont').off('click');
+    $('.cont').html('重新开始').addClass('resta').removeClass('fff');
+    $('.ping').html('S')
+    if (m === 0) {
+      var fenshu = $('.fenshu').html();
+      $('.getfs').html(fenshu);
+      $('<div>').addClass('shibaii').appendTo('.shibai');
+      clearInterval(t)
+      clearInterval(times)
+      $('.tong').css('display', 'block');
+      $('#names').on('keyup', function(e) {
+        if (e.keyCode === 13) {
+          var elss = $('#names').val();
+          var obj = {
+            wang: Math.max.apply(null, $.map(mostest, function(v) {
+              return v.wang
+            })) + 1,
+            name: elss,
+            fenshu: fenshu
+          };
+          mostest.push(obj);
+          mostest.sort(function(x, y) {
+            console.log(x.fenshu, y.fenshu)
+            return x.fenshu > y.fenshu;
+          })
+          mostest.shift()
+          mostest.sort(function(x, y) {
+            console.log(x.fenshu, y.fenshu)
+            return x.fenshu < y.fenshu;
+          })
+          $('#names').off('keydown');
+          baocun();
+          render();
+          $('.tong').css('display', 'none');
+          $('<div>').removeClass('shibaii');
+          $('#names').html('');
+          $('.getfs').html('');
+          return false;
+        }
+      })
+    }
+  }
+
+  //死亡之后重新开始
+  var restaa = function() {
+    $('.tong').css('display', 'none');
+    $('.left').empty();
+    $('.fenshu').html(0);
+    clearInterval(t);
+    clearInterval(times);
+    zimujihe = {}
+    for (var i = 0; i < 5; i++) {
+
+      createzimu(i);
+
+    }
+    t = setInterval(diao, 30);
+    elf = 5;
+    f = 0;
+    m = 300;
+    jishi();
+    pas();
+  }
+  $('.bottom').on('click', '.resta', restaa);
+
+  function taggame(e) {
+    if (t) {
+      clearInterval(t);
+      clearInterval(times);
+      t = null;
+
+    } else {
+      t = setInterval(diao, 30);
+      times = setInterval(shijian, 100)
+      // tin.style.display = "none";
+    }
+  }
+
+  var jishi = function() {
+    $('.time').html(300);
+    times = setInterval(shijian, 100)
+  }
+  ///////////开始游戏
+  pao.onclick = function sda() {
+    $('.left').empty();
+    $('.kaishi').css('display', 'none');
+    zimujihe = {};
+    for (var i = 0; i < 5; i++) {
+
+      createzimu(i);
+
+    }
+    m = 300;
+    clearInterval(times)
+    t = setInterval(diao, 30)
+    jishi()
+  }
+  //////////重新开始
+  var restart = function() {
+    $('.left').empty();
+    $('.fenshu').html(0);
+    // $('.')
+    clearInterval(t);
+    clearInterval(times);
+    zimujihe = {}
+    for (var i = 0; i < 5; i++) {
+
+      createzimu(i);
+
+    }
+    t = setInterval(diao, 30);
+    elf = 6;
+    f = 0;
+    m = 300;
+    jishi();
+    pas();
+  }
+  $('#restart').on('click', restart)
+  ///////返回
+  $('.fanhui').on('click', function() {
+    $('.tong').css('display', 'none')
+    $('.kaishi').css('display', 'block')
+    elf = 5;
+    $('.pass').html(elf);
+    console.log(elf)
+  })
+  ///////////下一关
+</script>
+</html>
